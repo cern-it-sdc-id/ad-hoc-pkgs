@@ -1,0 +1,23 @@
+*** src/lua.cmake   2015-01-22 11:28:22.000000000 +0100
+--- src/lua.cmake.b 2015-03-25 10:57:31.289356567 +0100
+*************** else()
+*** 40,45 ****
+--- 40,46 ----
+        "-DCMAKE_C_FLAGS:STRING=${CMAKE_C_FLAGS} ${cExtraFlags}"
+        -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+        -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
++       -DBoost_NO_BOOST_CMAKE:BOOL=ON
+      )
+    ExternalProject_Get_Property(lua INSTALL_DIR)
+    ExternalProject_Get_Property(lua BINARY_DIR)
+*************** else()
+*** 77,82 ****
+--- 78,84 ----
+        -DLUA_LIBRARIES:PATH=${LUA_LIBRARIES}
+        -DLUA_LIBRARY:PATH=${LUA_LIBRARIES}
+        -DBOOST_ROOT:PATH=${boostDir}
++       -DBoost_NO_BOOST_CMAKE:BOOL=ON
+      INSTALL_COMMAND "")
+    add_dependencies(luabind lua)
+    if(TARGET boost)
+
